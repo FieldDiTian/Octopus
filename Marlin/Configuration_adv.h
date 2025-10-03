@@ -1099,7 +1099,7 @@
 
 // @section motion
 
-#define AXIS_RELATIVE_MODES { false, false, false, false }
+#define AXIS_RELATIVE_MODES { false, false, false, true }
 
 // Add a Duplicate option for well-separated conjoined nozzles
 //#define MULTI_NOZZLE_DUPLICATION
@@ -2553,7 +2553,7 @@
  */
 #if HAS_MULTI_EXTRUDER
   // Z raise distance for tool-change, as needed for some extruders
-  #define TOOLCHANGE_ZRAISE                 2 // (mm)
+  #define TOOLCHANGE_ZRAISE                 0 // (mm) - 禁用Z轴抬升避免死机
   //#define TOOLCHANGE_ZRAISE_BEFORE_RETRACT  // Apply raise before swap retraction (if enabled)
   //#define TOOLCHANGE_NO_RETURN              // Never return to previous position on tool-change
   #if ENABLED(TOOLCHANGE_NO_RETURN)
@@ -2564,9 +2564,10 @@
    * Extra G-code to run while executing tool-change commands. Can be used to use an additional
    * stepper motor (e.g., I axis in Configuration.h) to drive the tool-changer.
    */
-  //#define EVENT_GCODE_TOOLCHANGE_T0 "G28 A\nG1 A0"  // Extra G-code to run while executing tool-change command T0
-  //#define EVENT_GCODE_TOOLCHANGE_T1 "G1 A10"        // Extra G-code to run while executing tool-change command T1
-  //#define EVENT_GCODE_TOOLCHANGE_ALWAYS_RUN         // Always execute above G-code sequences. Use with caution!
+  #define EVENT_GCODE_TOOLCHANGE_T0 "M17 E0"  // Ensure M5 driver energizes when tool 0 is selected
+  #define EVENT_GCODE_TOOLCHANGE_T1 "M17 E1"  // Ensure M6 driver energizes when tool 1 is selected
+  #define EVENT_GCODE_TOOLCHANGE_T2 "M17 E2"  // Ensure M7 driver energizes when tool 2 is selected
+  #define EVENT_GCODE_TOOLCHANGE_ALWAYS_RUN         // Always execute above G-code sequences. Use with caution!
 
   /**
    * Tool Sensors detect when tools have been picked up or dropped.
@@ -2881,20 +2882,20 @@
   #endif
 
   #if AXIS_IS_TMC_CONFIG(E1)
-    //#define E1_CURRENT      E0_CURRENT
-    //#define E1_MICROSTEPS   E0_MICROSTEPS
-    //#define E1_RSENSE       E0_RSENSE
+    #define E1_CURRENT      900
+    #define E1_MICROSTEPS   16
+    #define E1_RSENSE       0.11
     //#define E1_CHAIN_POS     -1
-    //#define E1_INTERPOLATE true
+    #define E1_INTERPOLATE true
     //#define E1_HOLD_MULTIPLIER 0.5
   #endif
 
   #if AXIS_IS_TMC_CONFIG(E2)
-    //#define E2_CURRENT      E0_CURRENT
-    //#define E2_MICROSTEPS   E0_MICROSTEPS
-    //#define E2_RSENSE       E0_RSENSE
+    #define E2_CURRENT      900
+    #define E2_MICROSTEPS   16
+    #define E2_RSENSE       0.11
     //#define E2_CHAIN_POS     -1
-    //#define E2_INTERPOLATE true
+    #define E2_INTERPOLATE true
     //#define E2_HOLD_MULTIPLIER 0.5
   #endif
 
@@ -3045,7 +3046,7 @@
     #define STEALTHCHOP_U
     #define STEALTHCHOP_V
     #define STEALTHCHOP_W
-    #define STEALTHCHOP_E
+    //#define STEALTHCHOP_E
   #endif
 
   /**
