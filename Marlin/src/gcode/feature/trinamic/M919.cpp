@@ -25,7 +25,9 @@
 #if HAS_TRINAMIC_CONFIG
 
 #if AXIS_COLLISION('I')
-  #error "M919 parameter 'I' collision with axis name."
+  constexpr char M919_AXIS_INDEX_PARAM = 'L';
+#else
+  constexpr char M919_AXIS_INDEX_PARAM = 'I';
 #endif
 
 #include "../../gcode.h"
@@ -48,7 +50,7 @@ static void tmc_print_chopper_time(TMC &st) {
  *
  * Parameters:
  *   XYZ...E     - Selected axes
- *   I[index]    - Axis sub-index (Omit for all XYZ steppers, 1 for X2, Y2, Z2; 2 for Z3; 3 for Z4)
+ *   I[index]    - Axis sub-index (uses 'L' when the I-axis is enabled)
  *   T[index]    - Extruder index (Zero-based. Omit for all extruders.)
  *   O           - time-off         [ 1..15]
  *   P           - hysteresis_end   [-3..12]
@@ -92,7 +94,7 @@ void GcodeSuite::M919() {
   if (err) return;
 
   #if AXIS_IS_TMC(X2) || AXIS_IS_TMC(Y2) || AXIS_IS_TMC(Z2) || AXIS_IS_TMC(Z3) || AXIS_IS_TMC(Z4)
-    const int8_t index = parser.byteval('I');
+    const int8_t index = parser.byteval(M919_AXIS_INDEX_PARAM);
   #elif AXIS_IS_TMC(X) || AXIS_IS_TMC(Y) || AXIS_IS_TMC(Z)
     constexpr int8_t index = -1;
   #endif

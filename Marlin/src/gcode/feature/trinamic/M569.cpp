@@ -25,7 +25,9 @@
 #if HAS_STEALTHCHOP
 
 #if AXIS_COLLISION('I')
-  #error "M569 parameter 'I' collision with axis name."
+  constexpr char M569_IDX_PARAM = 'L';  // Avoid conflict with active axis letter
+#else
+  constexpr char M569_IDX_PARAM = 'I';
 #endif
 
 #include "../../gcode.h"
@@ -48,7 +50,7 @@ static void set_stealth_status(const bool enable, const int8_t eindex) {
   #define TMC_SET_STEALTH(Q) tmc_set_stealthChop(stepper##Q, enable)
 
   #if X2_HAS_STEALTHCHOP || Y2_HAS_STEALTHCHOP || Z2_HAS_STEALTHCHOP || Z3_HAS_STEALTHCHOP || Z4_HAS_STEALTHCHOP
-    const int8_t index = parser.byteval('I', -1);
+    const int8_t index = parser.byteval(M569_IDX_PARAM, -1);
   #else
     constexpr int8_t index = -1;
   #endif

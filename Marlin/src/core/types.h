@@ -62,8 +62,15 @@ template <class L, class R> struct IF<true, L, R> { typedef L type; };
 #define LOGICAL_AXIS_ARGS_LC(T)    LOGICAL_AXIS_LIST(T e, T x, T y, T z, T i, T j, T k, T u, T v, T w)
 #define LOGICAL_AXIS_ELEM(O)       LOGICAL_AXIS_LIST(O.E, O.X, O.Y, O.Z, O.I, O.J, O.K, O.U, O.V, O.W)
 #define LOGICAL_AXIS_ELEM_LC(O)    LOGICAL_AXIS_LIST(O.e, O.x, O.y, O.z, O.i, O.j, O.k, O.u, O.v, O.w)
-#define LOGICAL_AXIS_DECL(T,V)     LOGICAL_AXIS_LIST(T E=V, T X=V, T Y=V, T Z=V, T I=V, T J=V, T K=V, T U=V, T V=V, T W=V)
-#define LOGICAL_AXIS_DECL_LC(T,V)  LOGICAL_AXIS_LIST(T e=V, T x=V, T y=V, T z=V, T i=V, T j=V, T k=V, T u=V, T v=V, T w=V)
+
+#if NUM_AXES
+  #define LOGICAL_AXIS_DECL(T,VAL)    T E=VAL, NUM_AXIS_LIST(T X=VAL, T Y=VAL, T Z=VAL, T I=VAL, T J=VAL, T K=VAL, T U=VAL, T V=VAL, T W=VAL)
+  #define LOGICAL_AXIS_DECL_LC(T,VAL) T e=VAL, NUM_AXIS_LIST(T x=VAL, T y=VAL, T z=VAL, T i=VAL, T j=VAL, T k=VAL, T u=VAL, T v=VAL, T w=VAL)
+#else
+  #define LOGICAL_AXIS_DECL(T,VAL)    T E=VAL
+  #define LOGICAL_AXIS_DECL_LC(T,VAL) T e=VAL
+#endif
+
 #define LOGICAL_AXIS_NAMES         LOGICAL_AXIS_LIST(E, X, Y, Z, I, J, K, U, V, W)
 #define LOGICAL_AXIS_NAMES_LC      LOGICAL_AXIS_LIST(e, x, y, z, i, j, k, u, v, w)
 #define LOGICAL_AXIS_MAP(F)        MAP(F, LOGICAL_AXIS_NAMES)

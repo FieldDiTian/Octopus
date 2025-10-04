@@ -382,6 +382,10 @@
     #define STR_I "C"
     #define STR_I_MIN "c_min"
     #define STR_I_MAX "c_max"
+  #elif AXIS4_NAME == 'I'
+    #define STR_I "I"
+    #define STR_I_MIN "i_min"
+    #define STR_I_MAX "i_max"
   #elif AXIS4_NAME == 'U'
     #define STR_I "U"
     #define STR_I_MIN "u_min"
@@ -395,7 +399,7 @@
     #define STR_I_MIN "w_min"
     #define STR_I_MAX "w_max"
   #else
-    #error "AXIS4_NAME can only be one of 'A', 'B', 'C', 'U', 'V', or 'W'."
+    #error "AXIS4_NAME can only be one of 'A', 'B', 'C', 'I', 'U', 'V', or 'W'."
   #endif
 #else
   #define STR_I   ""
@@ -410,6 +414,14 @@
     #define STR_J "C"
     #define STR_J_MIN "c_min"
     #define STR_J_MAX "c_max"
+  #elif AXIS5_NAME == 'I'
+    #define STR_J "I"
+    #define STR_J_MIN "i_min"
+    #define STR_J_MAX "i_max"
+  #elif AXIS5_NAME == 'J'
+    #define STR_J "J"
+    #define STR_J_MIN "j_min"
+    #define STR_J_MAX "j_max"
   #elif AXIS5_NAME == 'U'
     #define STR_J "U"
     #define STR_J_MIN "u_min"
@@ -423,7 +435,7 @@
     #define STR_J_MIN "w_min"
     #define STR_J_MAX "w_max"
   #else
-    #error "AXIS5_NAME can only be one of 'B', 'C', 'U', 'V', or 'W'."
+    #error "AXIS5_NAME can only be one of 'B', 'C', 'I', 'J', 'U', 'V', or 'W'."
   #endif
 #else
   #define STR_J   ""
@@ -434,6 +446,18 @@
     #define STR_K "C"
     #define STR_K_MIN "c_min"
     #define STR_K_MAX "c_max"
+  #elif AXIS6_NAME == 'I'
+    #define STR_K "I"
+    #define STR_K_MIN "i_min"
+    #define STR_K_MAX "i_max"
+  #elif AXIS6_NAME == 'J'
+    #define STR_K "J"
+    #define STR_K_MIN "j_min"
+    #define STR_K_MAX "j_max"
+  #elif AXIS6_NAME == 'K'
+    #define STR_K "K"
+    #define STR_K_MIN "k_min"
+    #define STR_K_MAX "k_max"
   #elif AXIS6_NAME == 'U'
     #define STR_K "U"
     #define STR_K_MIN "u_min"
@@ -447,7 +471,7 @@
     #define STR_K_MIN "w_min"
     #define STR_K_MAX "w_max"
   #else
-    #error "AXIS6_NAME can only be one of 'C', 'U', 'V', or 'W'."
+    #error "AXIS6_NAME can only be one of 'C', 'I', 'J', 'K', 'U', 'V', or 'W'."
   #endif
 #else
   #define STR_K   ""

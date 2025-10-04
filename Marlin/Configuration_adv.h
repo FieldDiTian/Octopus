@@ -2813,7 +2813,7 @@
   #endif
 
   #if AXIS_IS_TMC_CONFIG(I)
-    #define I_CURRENT      800
+    #define I_CURRENT      900
     #define I_CURRENT_HOME I_CURRENT
     #define I_MICROSTEPS    16
     #define I_RSENSE         0.11
@@ -2823,7 +2823,7 @@
   #endif
 
   #if AXIS_IS_TMC_CONFIG(J)
-    #define J_CURRENT      800
+    #define J_CURRENT      900
     #define J_CURRENT_HOME J_CURRENT
     #define J_MICROSTEPS    16
     #define J_RSENSE         0.11
@@ -2833,7 +2833,7 @@
   #endif
 
   #if AXIS_IS_TMC_CONFIG(K)
-    #define K_CURRENT      800
+    #define K_CURRENT      900
     #define K_CURRENT_HOME K_CURRENT
     #define K_MICROSTEPS    16
     #define K_RSENSE         0.11
@@ -2843,7 +2843,7 @@
   #endif
 
   #if AXIS_IS_TMC_CONFIG(U)
-    #define U_CURRENT      800
+    #define U_CURRENT      900
     #define U_CURRENT_HOME U_CURRENT
     #define U_MICROSTEPS     8
     #define U_RSENSE         0.11
@@ -2853,7 +2853,7 @@
   #endif
 
   #if AXIS_IS_TMC_CONFIG(V)
-    #define V_CURRENT      800
+    #define V_CURRENT      900
     #define V_CURRENT_HOME V_CURRENT
     #define V_MICROSTEPS     8
     #define V_RSENSE         0.11
@@ -2863,7 +2863,7 @@
   #endif
 
   #if AXIS_IS_TMC_CONFIG(W)
-    #define W_CURRENT      800
+    #define W_CURRENT      900
     #define W_CURRENT_HOME W_CURRENT
     #define W_MICROSTEPS     8
     #define W_RSENSE         0.11
@@ -2882,20 +2882,20 @@
   #endif
 
   #if AXIS_IS_TMC_CONFIG(E1)
-    #define E1_CURRENT      900
-    #define E1_MICROSTEPS   16
-    #define E1_RSENSE       0.11
+    //#define E1_CURRENT      900
+    //#define E1_MICROSTEPS   16
+    //#define E1_RSENSE       0.11
     //#define E1_CHAIN_POS     -1
-    #define E1_INTERPOLATE true
+    //#define E1_INTERPOLATE true
     //#define E1_HOLD_MULTIPLIER 0.5
   #endif
 
   #if AXIS_IS_TMC_CONFIG(E2)
-    #define E2_CURRENT      900
-    #define E2_MICROSTEPS   16
-    #define E2_RSENSE       0.11
+    //#define E2_CURRENT      900
+    //#define E2_MICROSTEPS   16
+    //#define E2_RSENSE       0.11
     //#define E2_CHAIN_POS     -1
-    #define E2_INTERPOLATE true
+    //#define E2_INTERPOLATE true
     //#define E2_HOLD_MULTIPLIER 0.5
   #endif
 
@@ -3006,12 +3006,12 @@
   //#define Z3_SLAVE_ADDRESS 0
   //#define Z4_SLAVE_ADDRESS 0
   //#define  I_SLAVE_ADDRESS 0
-  //#define  J_SLAVE_ADDRESS 0
-  //#define  K_SLAVE_ADDRESS 0
-  //#define  U_SLAVE_ADDRESS 0
-  //#define  V_SLAVE_ADDRESS 0
-  //#define  W_SLAVE_ADDRESS 0
-  //#define E0_SLAVE_ADDRESS 0
+  #define  J_SLAVE_ADDRESS 1
+  #define  K_SLAVE_ADDRESS 2
+  #define  U_SLAVE_ADDRESS 0
+  #define  V_SLAVE_ADDRESS 0
+  #define  W_SLAVE_ADDRESS 0
+  #define E0_SLAVE_ADDRESS 3
   //#define E1_SLAVE_ADDRESS 0
   //#define E2_SLAVE_ADDRESS 0
   //#define E3_SLAVE_ADDRESS 0
