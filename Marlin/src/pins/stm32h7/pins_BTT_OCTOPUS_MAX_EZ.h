@@ -138,6 +138,16 @@
 #endif
 
 //
+// Additional Axes Endstops (for 9-axis configuration)
+//
+#define I_MIN_PIN                           PA1   // Available GPIO
+#define J_MIN_PIN                           PA2   // Available GPIO  
+#define K_MIN_PIN                           PA3   // Available GPIO
+#define U_MIN_PIN                           PA4   // Available GPIO
+#define V_MIN_PIN                           PA5   // Available GPIO
+#define W_MIN_PIN                           PA6   // Available GPIO
+
+//
 // Z Probe (when not Z_MIN_PIN)
 //
 #ifndef Z_MIN_PROBE_PIN
@@ -181,53 +191,53 @@
   #define Z_CS_PIN                          PG12
 #endif
 
-#define Z2_STEP_PIN                         PB8   // MOTOR 4
-#define Z2_DIR_PIN                          PB9
-#define Z2_ENABLE_PIN                       PB7
-#ifndef Z2_CS_PIN
-  #define Z2_CS_PIN                         PG11
+#define U_STEP_PIN                          PB8   // MOTOR 4
+#define U_DIR_PIN                           PB9
+#define U_ENABLE_PIN                        PB7
+#ifndef U_CS_PIN
+  #define U_CS_PIN                          PG11
 #endif
 
-#define E0_STEP_PIN                         PB5   // MOTOR 5
-#define E0_DIR_PIN                          PB4
-#define E0_ENABLE_PIN                       PB6
+#define V_STEP_PIN                          PB5   // MOTOR 5
+#define V_DIR_PIN                           PB4
+#define V_ENABLE_PIN                        PB6
+#ifndef V_CS_PIN
+  #define V_CS_PIN                          PG10
+#endif
+
+#define W_STEP_PIN                          PG15  // MOTOR 6
+#define W_DIR_PIN                           PB3
+#define W_ENABLE_PIN                        PD5
+#ifndef W_CS_PIN
+  #define W_CS_PIN                          PG9
+#endif
+
+#define I_STEP_PIN                          PD3   // MOTOR 7
+#define I_DIR_PIN                           PD2
+#define I_ENABLE_PIN                        PD4
+#ifndef I_CS_PIN
+  #define I_CS_PIN                          PD7
+#endif
+
+#define J_STEP_PIN                          PA10  // MOTOR 8
+#define J_DIR_PIN                           PA9
+#define J_ENABLE_PIN                        PA15
+#ifndef J_CS_PIN
+  #define J_CS_PIN                          PD6
+#endif
+
+#define K_STEP_PIN                          PA8   // MOTOR 9
+#define K_DIR_PIN                           PC7
+#define K_ENABLE_PIN                        PC9
+#ifndef K_CS_PIN
+  #define K_CS_PIN                          PG8
+#endif
+
+#define E0_STEP_PIN                         PG6   // MOTOR 10
+#define E0_DIR_PIN                          PC6
+#define E0_ENABLE_PIN                       PC8
 #ifndef E0_CS_PIN
-  #define E0_CS_PIN                         PG10
-#endif
-
-#define E1_STEP_PIN                         PG15  // MOTOR 6
-#define E1_DIR_PIN                          PB3
-#define E1_ENABLE_PIN                       PD5
-#ifndef E1_CS_PIN
-  #define E1_CS_PIN                         PG9
-#endif
-
-#define E2_STEP_PIN                         PD3   // MOTOR 7
-#define E2_DIR_PIN                          PD2
-#define E2_ENABLE_PIN                       PD4
-#ifndef E2_CS_PIN
-  #define E2_CS_PIN                         PD7
-#endif
-
-#define E3_STEP_PIN                         PA10  // MOTOR 8
-#define E3_DIR_PIN                          PA9
-#define E3_ENABLE_PIN                       PA15
-#ifndef E3_CS_PIN
-  #define E3_CS_PIN                         PD6
-#endif
-
-#define E4_STEP_PIN                         PA8   // MOTOR 9
-#define E4_DIR_PIN                          PC7
-#define E4_ENABLE_PIN                       PC9
-#ifndef E4_CS_PIN
-  #define E4_CS_PIN                         PG8
-#endif
-
-#define E5_STEP_PIN                         PG6   // MOTOR 10
-#define E5_DIR_PIN                          PC6
-#define E5_ENABLE_PIN                       PC8
-#ifndef E5_CS_PIN
-  #define E5_CS_PIN                         PG7
+  #define E0_CS_PIN                         PG7
 #endif
 
 //
@@ -327,15 +337,15 @@
   #define X_SERIAL_TX_PIN                   PG14
   #define Y_SERIAL_TX_PIN                   PG13
   #define Z_SERIAL_TX_PIN                   PG12
-  #define Z2_SERIAL_TX_PIN                  PG11
-  #define E0_SERIAL_TX_PIN                  PG10
-  #define E1_SERIAL_TX_PIN                  PG9
-  #define E2_SERIAL_TX_PIN                  PD7
-  #define E3_SERIAL_TX_PIN                  PD6
-  #define E4_SERIAL_TX_PIN                  PG8
-  #define E4_SERIAL_RX_PIN      E3_SERIAL_RX_PIN
-  #define E5_SERIAL_TX_PIN                  PG7
-  #define E5_SERIAL_RX_PIN      E3_SERIAL_RX_PIN
+  #define U_SERIAL_TX_PIN                   PG11
+  #define V_SERIAL_TX_PIN                   PG10
+  #define W_SERIAL_TX_PIN                   PG9
+  #define I_SERIAL_TX_PIN                   PD7
+  #define J_SERIAL_TX_PIN                   PD6
+  #define K_SERIAL_TX_PIN                   PG8
+  #define K_SERIAL_RX_PIN       J_SERIAL_RX_PIN
+  #define E0_SERIAL_TX_PIN                  PG7
+  #define E0_SERIAL_RX_PIN      J_SERIAL_RX_PIN
 
   // Reduce baud rate to improve software serial reliability
   #ifndef TMC_BAUD_RATE
