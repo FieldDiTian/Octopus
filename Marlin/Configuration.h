@@ -1648,22 +1648,22 @@
 
 // Disable axis steppers immediately when they're not being stepped.
 // WARNING: When motors turn off there is a chance of losing position accuracy!
-//#define DISABLE_X
-//#define DISABLE_Y
-//#define DISABLE_Z
-//#define DISABLE_I
-//#define DISABLE_J
-//#define DISABLE_K
-//#define DISABLE_U
-//#define DISABLE_V
-//#define DISABLE_W
+#define DISABLE_X
+#define DISABLE_Y
+#define DISABLE_Z
+#define DISABLE_I
+#define DISABLE_J
+#define DISABLE_K
+#define DISABLE_U
+#define DISABLE_V
+#define DISABLE_W
 
 // Turn off the display blinking that warns about possible accuracy reduction
 //#define DISABLE_REDUCED_ACCURACY_WARNING
 
 // @section extruder
 
-//#define DISABLE_E               // Disable the extruder when not stepping
+#define DISABLE_E               // Disable the extruder when not stepping
 #define DISABLE_OTHER_EXTRUDERS   // Keep only the active extruder enabled
 
 // @section motion
